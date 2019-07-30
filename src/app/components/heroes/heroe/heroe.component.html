@@ -1,0 +1,51 @@
+<div class="animated fadeIn fast">
+
+  <h3>Heroe <small>nombre...</small></h3>
+  <hr>
+
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="guardar()" #forma="ngForm">
+
+        <div class="form-group"  >
+          <label>Nombre</label>
+          <input type="text" 
+                 class="form-control" 
+                 [(ngModel)]="heroe.nombre" 
+                 name="nombre" required>
+        </div>
+
+        <div class="form-group">
+            <label>Casa</label>
+            <select class="form-control" [(ngModel)]="heroe.casa" name="casa">
+              <option value=""></option>
+              <option value="Marvel">Marvel</option>
+              <option value="DC">DC</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Bio</label>
+            <textarea type="text" 
+                      class="form-control" 
+                      [(ngModel)]="heroe.bio" 
+                      name="bio" required>
+            </textarea>
+        </div>
+
+        <div class="btn-group">
+          <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">
+            Guardar Cambios
+          </button>
+          <button [routerLink]="['/heroes']"
+          type="button" 
+          class="btn btn-outline-danger">
+            Volver
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>

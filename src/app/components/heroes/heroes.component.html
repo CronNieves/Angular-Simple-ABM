@@ -1,0 +1,53 @@
+<div class="animated fadeIn fast">
+  <h1>Heroes</h1>
+  <hr>
+
+  <div class="row">
+      <div class="col-md-12 text-right">
+        <button [routerLink]="['/heroe','nuevo']"
+                type="button" 
+                class="btn btn-outline-primary">
+          Nuevo Heroe
+        </button>
+      </div>
+  </div>
+  <br>
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="table-responsive">
+
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Casa</th>
+                <th class="text-right" scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let k of listHeroes | keys; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ listHeroes[k].nombre }}</td>
+                <td>{{ listHeroes[k].casa }}</td>
+                <td class="text-right"> 
+                  <div class="btn-group">
+                    <button [routerLink]="['/heroe',k]" class="btn btn-outline-success">Editar</button>
+                    <button (click)="borrarHeroe(k)" class="btn btn-outline-danger">Borrar</button>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
